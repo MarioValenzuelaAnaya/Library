@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using static System.Reflection.Metadata.BlobBuilder;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Biblioteca.test
+namespace Biblioteca.test.Mocks
 {
     public static class MockLoanRepository
     {
@@ -21,11 +21,11 @@ namespace Biblioteca.test
                 Id = 2,
                 Title = "One Piece",
                 Author = "Test Author 2",
-                CopiesAvailable=5
-                
+                CopiesAvailable = 5
+
             };
 
-        var loans = new List<Loan>
+            var loans = new List<Loan>
             {
                 new Loan
                 {
@@ -74,12 +74,12 @@ namespace Biblioteca.test
                 var loanToReturn = loans.FirstOrDefault(b => b.Id == id);
                 if (loanToReturn != null)
                 {
-                  
+
                     loanToReturn.ReturnDate = DateTime.Now;
                     loanToReturn.IsBorrowed = false;
                     var bookToUpdate = loanToReturn.Book;
                     bookToUpdate.CopiesAvailable++;
-                    return Task.FromResult(bookToUpdate.Title); 
+                    return Task.FromResult(bookToUpdate.Title);
                 }
                 throw new InvalidOperationException("Loan not available for return.");
             });

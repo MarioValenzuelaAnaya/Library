@@ -1,13 +1,8 @@
 ﻿using Biblioteca.Application.Contracts.Persistence;
-using Biblioteca.Application.Exceptions;
 using Biblioteca.Domain;
 using Moq;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
 
-namespace Biblioteca.Test
+namespace Biblioteca.test.Mocks
 {
     public static class MockBookRepository
     {
@@ -48,9 +43,9 @@ namespace Biblioteca.Test
                 if (bookToRemove != null)
                 {
                     books.Remove(bookToRemove);
-                    return 1; 
+                    return 1;
                 }
-                return 0; 
+                return 0;
             });
 
             mockRepo.Setup(r => r.GetByIdAsync(It.IsAny<int>())).ReturnsAsync((int id) =>
@@ -71,16 +66,16 @@ namespace Biblioteca.Test
                 {
                     bookToUpdate.Title = book.Title;
                     bookToUpdate.Author = book.Author;
-                     return bookToUpdate;
+                    return bookToUpdate;
                 }
-                 throw new KeyNotFoundException($"Book with id {book.Id} not found.");
+                throw new KeyNotFoundException($"Book with id {book.Id} not found.");
             });
 
 
             mockRepo.Setup(r => r.AddAsync(It.IsAny<Book>())).ReturnsAsync((Book book) =>
             {
                 books.Add(book);
-                return book;              
+                return book;
             });
 
             mockRepo.Setup(r => r.LendBookAsync(It.IsAny<int>())).ReturnsAsync((int bookId) =>

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Biblioteca.Application.Contracts.Persistence;
 using Biblioteca.Application.Mappings;
-using Biblioteca.test;
+using Biblioteca.test.Mocks;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Shouldly;
