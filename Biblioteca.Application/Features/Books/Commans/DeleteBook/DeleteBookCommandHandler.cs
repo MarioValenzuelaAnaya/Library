@@ -36,11 +36,20 @@ namespace Biblioteca.Application.Features.Books.Commans.DeleteBook
                 throw new NotFoundException(nameof(Book), request.Id);
             }
            var BookName= BookToDelete.Title;
-            await _bookRepository.DeleteAsync(BookToDelete);
+             var delete  =   await _bookRepository.DeleteAsync(BookToDelete);
 
-            _logger.LogInformation($"the book with id {request.Id} deleted");
+            if (delete > 0)
+            {
+                _logger.LogInformation($"the book with id {request.Id} deleted");
 
-            return BookName;
+                return BookName;
+            }
+            else
+            {
+                throw new InvalidOperationException("Something wrong");
+            }
+
+           
         }
     }
 }

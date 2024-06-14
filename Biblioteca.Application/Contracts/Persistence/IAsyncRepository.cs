@@ -26,6 +26,6 @@ namespace Biblioteca.Application.Contracts.Persistence
 
         Task<T> UpdateAsync(T entity);
 
-        Task DeleteAsync(T entity);
+        Task <int> DeleteAsync(T entity);
     }
 }

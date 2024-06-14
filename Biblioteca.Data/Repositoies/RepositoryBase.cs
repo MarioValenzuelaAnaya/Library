@@ -83,10 +83,10 @@ namespace Biblioteca.Infrastructure.Repositoies
             return entity;
         }
 
-        public async Task DeleteAsync(T entity)
+        public async Task<int> DeleteAsync(T entity)
         {
             _context.Set<T>().Remove(entity);
-            await _context.SaveChangesAsync();
+          return  await _context.SaveChangesAsync();
         }
 
     }

@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biblioteca.Domain", "..\Bib
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biblioteca.Application", "..\Biblioteca.Application\Biblioteca.Application.csproj", "{CD2E2D9C-A088-4CF9-AD0E-4244E5EDBFDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioteca.Identity", "..\Identity\Biblioteca.Identity.csproj", "{DD9AB3B9-01A3-4E16-926F-2CB38F129C8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biblioteca.Identity", "..\Identity\Biblioteca.Identity.csproj", "{DD9AB3B9-01A3-4E16-926F-2CB38F129C8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
