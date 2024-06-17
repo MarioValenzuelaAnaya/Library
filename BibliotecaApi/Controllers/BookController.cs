@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Biblioteca.Api.Controllers
 {
-    [Authorize(Roles = "Admin")]
+
     [ApiController]
     [Route("api/[controller]")]
     public class BookController : ControllerBase
@@ -34,7 +34,7 @@ namespace Biblioteca.Api.Controllers
 
 
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
 
         public async Task<ActionResult<string>> CreateBook([FromBody] CreateBookCommand command)
@@ -52,6 +52,8 @@ namespace Biblioteca.Api.Controllers
 
 
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost("UpdateBook")]
         public async Task<ActionResult<string>> UpdateBook(UpdateBookCommand request)
         {
@@ -59,7 +61,7 @@ namespace Biblioteca.Api.Controllers
             return await _mediator.Send(request);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("AddLoan")]
 
         public async Task<ActionResult<string>> AddLoan([FromBody] AddBookLoanCommand command)
@@ -75,7 +77,7 @@ namespace Biblioteca.Api.Controllers
             var loans = await _mediator.Send(query);
             return Ok(loans);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("ReturnLoan")]
 
         public async Task<ActionResult<string>> ReturnLoan([FromBody] ReturnLoanCommand command)
